@@ -1,0 +1,31 @@
+services:
+  audio-db:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: db/Dockerfile
+    ports:
+      - "127.0.0.1:${AUDIO_DB_LOCAL_PORT}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  audio-app:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    ports:
+      - "${AUDIO_APP_LOCAL_PORT}:8000"
+    volumes:
+    - ./app/app/src/media:/application/src/media
+    depends_on:
+      - audio-db
+
+networks:
+  audio-network:
+    driver: bridge
+
+volumes:
+  db_data:

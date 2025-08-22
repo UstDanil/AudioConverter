@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "Audio api"
+version = "1"
+description = ""
+authors = ["Kuzin Danil"]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.113"
+uvicorn = "^0.30"
+SQLAlchemy = "^2.0.23"
+asyncpg = "^0.29.0"
+pydantic = "^2.5.2"
+pydantic-settings = "^2.1.0"
+pylint = "^3.0.2"
+pydub = "^0.25.0"
+python-multipart = "^0.0.20"
+ffmpeg-python = "^0.2.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.8.1"]
+build-backend = "poetry.core.masonry.api"
